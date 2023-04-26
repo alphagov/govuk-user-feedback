@@ -21,3 +21,14 @@ resource "google_project_service" "services" {
   disable_dependent_services = true
   disable_on_destroy         = true
 }
+
+# Storage bucket for state
+resource "google_storage_bucket" "default" {
+  name          = "${var.project}-bucket-tfstate"
+  force_destroy = false
+  location      = var.project_region
+  storage_class = "STANDARD"
+  versioning {
+    enabled = true
+  }
+}
