@@ -1,12 +1,9 @@
-#project = "analytics-engineering-test"
-#project                   = "govuk-analytics-test"
+
 services = [
   "cloudidentity.googleapis.com",
   "iam.googleapis.com",
   "pubsub.googleapis.com",
-  "compute.googleapis.com",
   "servicenetworking.googleapis.com",
-  "vpcaccess.googleapis.com",
   "secretmanager.googleapis.com",
   "cloudfunctions.googleapis.com",
   "cloudbuild.googleapis.com",
@@ -17,7 +14,6 @@ services = [
   "sqladmin.googleapis.com",
   "dlp.googleapis.com",
   "container.googleapis.com",
-  "aiplatform.googleapis.com", 
   "bigquerydatatransfer.googleapis.com"
 ]
 project_region            = "europe-west2"

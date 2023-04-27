@@ -20,7 +20,6 @@ resource "google_project_iam_member" "engineering-project-roles" {
     "roles/pubsub.editor",
     "roles/cloudscheduler.admin",
     "roles/iam.serviceAccountTokenCreator",
-    "projects/${var.project}/roles/${google_project_iam_custom_role.custom_IAP_role.role_id}"
   ])
   role    = each.key
   member  = "group:${var.data_engineering_addr}"
