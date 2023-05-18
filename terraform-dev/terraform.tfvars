@@ -14,7 +14,8 @@ services = [
   "sqladmin.googleapis.com",
   "dlp.googleapis.com",
   "container.googleapis.com",
-  "bigquerydatatransfer.googleapis.com"
+  "bigquerydatatransfer.googleapis.com",
+  "dlp.googleapis.com"
 ]
 project_region            = "europe-west2"
 project_region_2char      = "EU"
