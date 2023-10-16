@@ -6,6 +6,14 @@ variable "services" {
   type = list(string)
 }
 
+variable "services_1st_batch" {
+  type = list(string)
+}
+
+variable "services_2nd_batch" {
+  type = list(string)
+}
+
 variable "project_region" {
   type    = string
   default = "europe-west2"

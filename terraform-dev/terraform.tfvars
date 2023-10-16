@@ -1,4 +1,3 @@
-
 services = [
   "cloudidentity.googleapis.com",
   "iam.googleapis.com",
@@ -16,6 +15,30 @@ services = [
   "container.googleapis.com",
   "bigquerydatatransfer.googleapis.com",
   "dlp.googleapis.com"
+]
+
+services_1st_batch = [
+  "cloudidentity.googleapis.com",
+  "iam.googleapis.com",
+  # "pubsub.googleapis.com",
+  "servicenetworking.googleapis.com",
+  "secretmanager.googleapis.com",
+  "cloudfunctions.googleapis.com",
+  "cloudbuild.googleapis.com",
+  "artifactregistry.googleapis.com",
+  "run.googleapis.com",
+  "workflows.googleapis.com",
+  "eventarc.googleapis.com",
+  "sqladmin.googleapis.com",
+  "dlp.googleapis.com",
+  "container.googleapis.com",
+  "bigquerydatatransfer.googleapis.com",
+  "dlp.googleapis.com"
+]
+
+services_2nd_batch = [
+  "pubsub.googleapis.com",
+  "vpcaccess.googleapis.com"
 ]
 project_region            = "europe-west2"
 project_region_2char      = "EU"

@@ -1,8 +1,8 @@
 
 terraform {
- backend "gcs" {
-   bucket  = "govuk-user-feedback-dev-bucket-tfstate"
-   prefix  = "terraform/state"
- }
+  backend "gcs" {
+    bucket = "govuk-user-feedback-bucket-tfstate"
+    prefix = "terraform/state"
+  }
 }
 
