@@ -83,3 +83,9 @@ variable "data_analysis_group_id" {
 variable "data_consumer_group_id" {
   type = string
 }
+
+variable "project_number" {
+  description = "The project number for the GCP project"
+  default     = 1011669116237
+  type = string
+}

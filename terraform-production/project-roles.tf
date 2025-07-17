@@ -22,7 +22,12 @@ resource "google_project_iam_member" "engineering-project-roles" {
     "roles/serviceusage.serviceUsageConsumer",
     "roles/vpcaccess.viewer",
     "roles/workflows.invoker",
-    "roles/workflows.editor"
+    "roles/workflows.editor",
+    "roles/compute.networkAdmin",
+    "roles/servicenetworking.networksAdmin",
+    "roles/vpcaccess.admin"
+
+    
   ])
   role    = each.key
   member  = "group:${var.data_engineering_addr}"
