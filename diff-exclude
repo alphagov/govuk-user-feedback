@@ -1,0 +1,6 @@
+environment.auto.tfvars
+backend.tf
+.terraform
+.terraform.lock.hcl
+terraform.tfvarscl
+variables.tf
