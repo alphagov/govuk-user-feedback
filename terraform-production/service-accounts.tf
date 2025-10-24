@@ -95,13 +95,6 @@ resource "google_project_iam_member" "dataform_bigquery_jobuser" {
   member  = "serviceAccount:service-${var.project_number}@gcp-sa-dataform.iam.gserviceaccount.com"
 }
 
-# Keep the existing artifact-registry-docker permission that was added
-resource "google_project_iam_member" "artifact_registry_docker" {
-  project = var.project
-  role    = "roles/run.developer"
-  member  = "serviceAccount:artifact-registry-docker@govuk-user-feedback.iam.gserviceaccount.com"
-}
-
 # Restore Google-managed service agents
 resource "google_project_iam_member" "service_agents" {
   for_each = {
@@ -109,8 +102,8 @@ resource "google_project_iam_member" "service_agents" {
       member = "serviceAccount:service-${var.project_number}@gcp-sa-artifactregistry.iam.gserviceaccount.com"
       role   = "roles/artifactregistry.serviceAgent"
     }
-    "bigqueryconnection" = {  
-      member = "serviceAccount:service-${var.project_number}@gcp-sa-bigqueryconnection.iam.gserviceaccount.com"
+    "bigqueryconnection" = {
+      member = "serviceAccount:${var.bigquery_connection_service_account_email}"
       role   = "roles/bigqueryconnection.serviceAgent"
     }
     "bigquerydatatransfer" = {
@@ -177,4 +170,16 @@ resource "google_project_iam_member" "service_agents" {
   project = var.project
   role    = each.value.role
   member  = each.value.member
+
+  depends_on = [google_bigquery_connection.trigger_service_account]
+}
+# this exists to ensure the bigqueryconnection service account is created
+resource "google_bigquery_connection" "trigger_service_account" {
+  connection_id = "cloud-resource-connection"
+  project       = var.project
+  location      = var.project_region
+  
+  cloud_resource {}
+  
+  depends_on = [google_project_service.services_1st_batch]
 }

@@ -1,25 +1,33 @@
 # Enable BigQuery read sessions for applicable groups
 resource "google_project_iam_member" "engineering-project-roles" {
   for_each = toset([
+    "roles/appengine.deployer",
+    "roles/appengine.appAdmin",
     "roles/artifactregistry.writer",
     "roles/bigquery.jobUser",
     "roles/bigquery.readSessionUser",
-    "roles/secretmanager.secretAccessor",
+    "roles/cloudbuild.builds.builder",
     "roles/cloudfunctions.invoker",
     "roles/cloudfunctions.developer",
+    "roles/cloudscheduler.admin",
     "roles/cloudsql.editor",
-    "roles/serviceusage.serviceUsageConsumer",
+    "roles/compute.networkUser",
     "roles/logging.logWriter",
+    "roles/iam.serviceAccountUser",
+    "roles/iam.serviceAccountTokenCreator",
+    "roles/pubsub.editor",
+    "roles/pubsub.publisher",
+    "roles/run.admin",
+    "roles/secretmanager.secretAccessor",
+    "roles/serviceusage.serviceUsageConsumer",
+    "roles/vpcaccess.viewer",
     "roles/workflows.invoker",
     "roles/workflows.editor",
-    "roles/appengine.deployer",
-    "roles/cloudbuild.builds.builder",
-    "roles/appengine.appAdmin",
-    "roles/run.admin",
-    "roles/iam.serviceAccountUser",
-    "roles/pubsub.editor",
-    "roles/cloudscheduler.admin",
-    "roles/iam.serviceAccountTokenCreator",
+    "roles/compute.networkAdmin",
+    "roles/servicenetworking.networksAdmin",
+    "roles/vpcaccess.admin"
+
+
   ])
   role    = each.key
   member  = "group:${var.data_engineering_addr}"

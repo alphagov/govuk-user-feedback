@@ -54,3 +54,5 @@ data_consumer_addr        = "data-consumers@digital.cabinet-office.gov.uk"
 data_engineering_group_id = "groups/03ygebqi427nij5"
 data_analysis_group_id    = "groups/02szc72q2o3ayyh"
 data_consumer_group_id    = "groups/01baon6m3haxqk2"
+
+bigquery_connection_service_account_email = "service-1011669116237@gcp-sa-bigqueryconnection.iam.gserviceaccount.com"

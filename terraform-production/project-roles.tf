@@ -27,7 +27,7 @@ resource "google_project_iam_member" "engineering-project-roles" {
     "roles/servicenetworking.networksAdmin",
     "roles/vpcaccess.admin"
 
-    
+
   ])
   role    = each.key
   member  = "group:${var.data_engineering_addr}"
