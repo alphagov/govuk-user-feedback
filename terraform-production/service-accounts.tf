@@ -103,6 +103,8 @@ resource "google_project_iam_member" "service_agents" {
       role   = "roles/artifactregistry.serviceAgent"
     }
     "bigqueryconnection" = {
+      #bigquery_connection is specified manually as govuk-user-feedback follows <project-num> iamserviceaccount.com pattern
+      #while govuk-user-feedback dev follows <random string> iamserviceaccount.com
       member = "serviceAccount:${var.bigquery_connection_service_account_email}"
       role   = "roles/bigqueryconnection.serviceAgent"
     }
@@ -173,13 +175,14 @@ resource "google_project_iam_member" "service_agents" {
 
   depends_on = [google_bigquery_connection.trigger_service_account]
 }
+
 # this exists to ensure the bigqueryconnection service account is created
 resource "google_bigquery_connection" "trigger_service_account" {
   connection_id = "cloud-resource-connection"
   project       = var.project
   location      = var.project_region
-  
+
   cloud_resource {}
-  
+
   depends_on = [google_project_service.services_1st_batch]
 }
