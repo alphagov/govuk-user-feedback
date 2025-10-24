@@ -83,3 +83,14 @@ variable "data_analysis_group_id" {
 variable "data_consumer_group_id" {
   type = string
 }
+variable "project_number" {
+  description = "The project number for the GCP project"
+  default     = "816273172614"
+  type        = string
+}
+
+variable "bigquery_connection_service_account_email" {
+  description = "The service account email used by the BigQuery Connection"
+  default     = "bqcx-816273172614-oj6k@gcp-sa-bigquery-condel.iam.gserviceaccount.com"
+  type        = string
+}

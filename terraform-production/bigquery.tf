@@ -61,3 +61,19 @@ resource "google_bigquery_dataset" "analysis_dataset_bqy" {
     group_by_email = var.data_consumer_addr
   }
 }
+
+resource "google_bigquery_dataset" "monitoring_dataset_bqy" {
+  project                         = var.project
+  dataset_id                      = "monitoring"
+  friendly_name                   = "monitoring_bqy"
+  description                     = "Monitoring dataset"
+  location                        = var.project_region
+  default_table_expiration_ms     = var.staging_max_ttl_ms
+  default_partition_expiration_ms = var.staging_max_ttl_ms
+  delete_contents_on_destroy      = true
+
+  access {
+    role           = "OWNER"
+    group_by_email = var.data_engineering_addr
+  }
+}
